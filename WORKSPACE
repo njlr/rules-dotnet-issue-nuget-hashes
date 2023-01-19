@@ -13,14 +13,11 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # bazel_skylib_workspace()
 
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
-
-git_repository(
-  name = "rules_dotnet",
-  remote = "https://github.com/bazelbuild/rules_dotnet",
-  # branch = "next",
-  commit = "5f0f5bca0f6f1428c5f854ad69311c7a94174c66",
-  shallow_since = "1663276624 +0000",
+http_archive(
+    name = "rules_dotnet",
+    sha256 = "c2d20df062fa34fdc7103d54ae44a2e3d715e2728c1fc21f7df450061ffb7726",
+    strip_prefix = "rules_dotnet-0.8.4",
+    url = "https://github.com/bazelbuild/rules_dotnet/archive/refs/tags/v0.8.4.tar.gz",
 )
 
 load(
